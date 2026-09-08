@@ -450,7 +450,7 @@ with gr.Blocks(title="Resume RAG Assistant") as demo:
 def launch_app() -> None:
     start_background_indexing()
     server_port = int(os.getenv("GRADIO_SERVER_PORT", "8000"))
-    demo.launch(server_name="0.0.0.0", server_port=server_port)
+    demo.launch(server_name="0.0.0.0", server_port=server_port, ssr_mode=False)
 
 
 if __name__ == "__main__":
