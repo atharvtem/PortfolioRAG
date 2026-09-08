@@ -421,6 +421,7 @@ with gr.Blocks(title="Resume RAG Assistant") as demo:
 
     chatbot = gr.Chatbot(
         label="Chat",
+        type="messages",
         value=[
             {
                 "role": "assistant",
@@ -447,7 +448,11 @@ with gr.Blocks(title="Resume RAG Assistant") as demo:
     timer.tick(status_text, outputs=status_box)
 
 
-if __name__ == "__main__":
+def launch_app() -> None:
     start_background_indexing()
     server_port = int(os.getenv("GRADIO_SERVER_PORT", "8000"))
-    demo.launch(server_name="127.0.0.1", server_port=server_port)
+    demo.launch(server_name="0.0.0.0", server_port=server_port)
+
+
+if __name__ == "__main__":
+    launch_app()

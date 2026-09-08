@@ -1,6 +1,6 @@
-chromadb==0.5.3
-google-genai==0.1.1
-pymupdf
-pypdf
-python-dotenv
-tqdm
+chromadb>=0.5.23
+google-genai>=1.0.0
+pymupdf>=1.24.14
+pypdf>=5.1.0
+python-dotenv>=1.0.1
+tqdm>=4.67.1
