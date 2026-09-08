@@ -421,7 +421,6 @@ with gr.Blocks(title="Resume RAG Assistant") as demo:
 
     chatbot = gr.Chatbot(
         label="Chat",
-        type="messages",
         value=[
             {
                 "role": "assistant",
