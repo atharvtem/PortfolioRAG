@@ -1,0 +1,9 @@
+chromadb>=0.5.23
+google-genai>=1.0.0
+gradio>=5.0.0
+ipykernel>=6.29.5
+jupyter>=1.1.1
+pymupdf>=1.24.14
+pypdf>=5.1.0
+python-dotenv>=1.0.1
+tqdm>=4.67.1

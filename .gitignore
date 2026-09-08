@@ -1,0 +1,16 @@
+# 1. Virtual Environment
+.venv/
+
+
+# 2. Local Database / Vector Store
+chroma_db/
+
+# 3. Local Data (Raw & processed data shouldn't be on GitHub)
+data/
+
+# 4. Python cache files
+__pycache__/
+*.py[cod]
+
+# 5. Environment Secrets (Crucial!)
+.env
