@@ -449,7 +449,8 @@ with gr.Blocks(title="Resume RAG Assistant") as demo:
 
 def launch_app() -> None:
     start_background_indexing()
-    server_port = int(os.getenv("GRADIO_SERVER_PORT", "8000"))
+    # Managed Gradio Spaces route traffic and health checks to port 7860.
+    server_port = 7860 if os.getenv("SPACE_ID") else int(os.getenv("GRADIO_SERVER_PORT", "7860"))
     demo.launch(server_name="0.0.0.0", server_port=server_port, ssr_mode=False)
 
 
