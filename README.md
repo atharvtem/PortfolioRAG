@@ -17,6 +17,9 @@ pinned: false
 The Gradio Space serves on `0.0.0.0:7860`. On Spaces, the app always uses
 port 7860; locally, `GRADIO_SERVER_PORT` can override the default.
 SSR is disabled. `share=True` is not required for the Space's public URL.
+On free accounts where CPU Basic is unavailable for compute Spaces, keep the
+Space on ZeroGPU; the Gradio chat handler is decorated with `@spaces.GPU` so
+the ZeroGPU runtime accepts the app.
 
 Set `GOOGLE_API_KEY` as a secret in the Space settings. The UI can start
 without it, but indexing and answers require a valid key.

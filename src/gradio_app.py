@@ -10,6 +10,7 @@ from textwrap import dedent
 import chromadb
 import gradio as gr
 import pymupdf
+import spaces
 from dotenv import load_dotenv
 from google import genai
 from google.genai import types
@@ -383,6 +384,7 @@ def status_text() -> str:
     return details
 
 
+@spaces.GPU(duration=30)
 def chat(user_message: str, history: list[dict] | None) -> tuple[list[dict], str]:
     history = history or []
     user_message = user_message.strip()
