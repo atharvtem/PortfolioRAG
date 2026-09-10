@@ -5,8 +5,9 @@
 # 2. Local Database / Vector Store
 chroma_db/
 
-# 3. Local Data (Raw & processed data shouldn't be on GitHub)
-data/
+# 3. Local Data
+data/*
+!data/*.pdf
 
 # 4. Python cache files
 __pycache__/

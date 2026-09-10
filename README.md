@@ -25,8 +25,8 @@ Set `GOOGLE_API_KEY` as a secret in the Space settings. The UI can start
 without it, but indexing and answers require a valid key.
 
 Provide the resume PDFs in `data/` in the deployed repository. This directory
-is currently gitignored, so local PDFs are not included by the GitHub sync.
-Only deliberately publish PDFs that are appropriate for a public repository.
+allows PDF files to be tracked, while other local data files remain ignored.
+Only commit PDFs that are appropriate for a public repository.
 Files uploaded directly to the Space can be removed by the workflow's force
 push; keep deployment data in the source repository if using this sync.
 
