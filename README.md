@@ -30,9 +30,11 @@ Only commit PDFs that are appropriate for a public repository.
 Files uploaded directly to the Space can be removed by the workflow's force
 push; keep deployment data in the source repository if using this sync.
 
-The GitHub workflow installs dependencies and checks that the actual app serves
-the UI and chatbot configuration on port 7860 before syncing. Run the same
-check locally with `python scripts/check_startup.py` after installing
+The GitHub workflow installs dependencies, checks that the actual app serves
+the UI and chatbot configuration on port 7860, then mirrors the repository to
+the Space with `huggingface/hub-sync`. That upload path handles binary files
+through the Hub/Xet upload flow instead of a raw Git push. Run the same check
+locally with `python scripts/check_startup.py` after installing
 `requirements.txt`. It does not use a Gemini key or test generated answers.
 
 After pushing to `main`, the Space startup logs should show
