@@ -24,6 +24,7 @@ COLLECTION_NAME = "resume_rag"
 GENERATION_MODEL = "gemini-3.5-flash"
 EMBEDDING_MODEL = "gemini-embedding-001"
 EMBEDDING_DIMENSIONS = 768
+MAX_OUTPUT_TOKENS = 1536
 
 load_dotenv(PROJECT_ROOT / ".env")
 API_KEY = os.getenv("GOOGLE_API_KEY")
@@ -340,7 +341,7 @@ def answer_question(question: str) -> str:
     response = genai_client.models.generate_content(
         model=GENERATION_MODEL,
         contents=prompt,
-        config=types.GenerateContentConfig(max_output_tokens=4096),
+        config=types.GenerateContentConfig(max_output_tokens=MAX_OUTPUT_TOKENS),
     )
     answer = response.text or ""
     finish_reason = response_finish_reason(response)
@@ -364,7 +365,7 @@ def answer_question(question: str) -> str:
         response = genai_client.models.generate_content(
             model=GENERATION_MODEL,
             contents=completion_prompt,
-            config=types.GenerateContentConfig(max_output_tokens=4096),
+            config=types.GenerateContentConfig(max_output_tokens=MAX_OUTPUT_TOKENS),
         )
         answer = response.text or answer
 
@@ -384,7 +385,7 @@ def status_text() -> str:
     return details
 
 
-@spaces.GPU(duration=30)
+@spaces.GPU(duration=180)
 def chat(user_message: str, history: list[dict] | None) -> tuple[list[dict], str]:
     history = history or []
     user_message = user_message.strip()
